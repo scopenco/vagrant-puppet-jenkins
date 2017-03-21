@@ -1,0 +1,19 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: puppet_apply
+  manifests_path: puppet/environments/local/manifests
+  modules_path: puppet/environments/local/modules
+
+platforms:
+  - name: centos-7.2
+
+suites:
+  - name: default
+    manifest: site.pp
+    driver:
+      synced_folders:
+        - ["./src", "/opt/src"]
+        - ["~/", "/opt/Home"]
