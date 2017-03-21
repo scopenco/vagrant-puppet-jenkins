@@ -15,8 +15,8 @@ package { ['jenkins', 'maven']:
 } ->
 
 service { 'jenkins':
-  enable    => true,
   ensure    => 'running',
+  enable    => true,
   hasstatus => true,
   require   => Package['jenkins'],
 } ->
